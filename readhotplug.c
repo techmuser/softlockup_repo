@@ -1,5 +1,6 @@
 /* File can be used to read hotplug events.
- * softlockup.com
+ * Web: http://www.softlockup.com
+ * Git: https://github.com/techmuser/linux_user_space.git
  */
 #include <stdio.h>
 #include <stdlib.h>
