@@ -1,0 +1,56 @@
+# Tmux aliases
+alias tnew='tmux new -s '                       # create a new named session
+alias tls='tmux ls'                      # list all the sessions
+alias tcon='tmux attach-session -d -t '  # attach to a session num
+alias tkill='tmux kill-session -t '      # End a session num
+
+# Screen aliases.
+alias ns='screen -S'                #new screen.
+alias ss='screen -ls'               #show screen.
+alias as='screen -d -R'             #attach screen.
+
+# Misc utilities/Useful commands
+alias webserve='python -m SimpleHTTPServer' #Starts a simple webserver on the current dir on port 8000.
+alias stopwatch='time read'                 # Start a stop watch stops when you press enter.
+alias freedisk='du | sort -nr | less'       # List the usage in current folder from max to min.
+
+# Perforce related.
+alias p4op='p4 opened | grep $MYBUILDDIR'
+alias p4ck='p4 diff -se soft-ap/... | p4 edit -x'
+function savecl(){
+    p4 describe $1 >> $1.diff
+    echo "Saved CL$1 to $1.diff"
+}
+alias p4savecl=savecl
+function saveusercls() {
+    p4 changes -u $1 -s submitted -m $2 > tempcl.list;
+    awk '{print $2}' tempcl.list;
+    #rm tempcl.list;
+}
+
+# Other bash shortcuts
+alias finds='ls -R | grep -i '
+alias findf='find . -iname '
+alias v='vim -t '
+alias ll='ls -ltrh'
+alias h='cd ~'
+alias l='ls'
+alias vi='vim -O '
+alias vis='vim -t '
+alias hm='cd ~'
+alias hg='history | grep '
+alias serial='sudo minicom'
+alias diffc='diff -c -p'
+alias diffu='diff -u'
+
+#Cscope 
+alias cs-run='cscope -R'
+alias cs-build='sh ~/Scripts/gentags'
+alias cs-daemon='cscope -d'
+
+# Get list of functions in source file.
+function funcs
+{
+     ctags -x --c-types=f --sort=no "$1" | awk '{print $1}'
+}
+
