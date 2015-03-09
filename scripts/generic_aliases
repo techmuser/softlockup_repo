@@ -16,7 +16,6 @@ alias freedisk='du | sort -nr | less'       # List the usage in current folder f
 
 # Perforce related.
 alias p4op='p4 opened | grep $MYBUILDDIR'
-alias p4ck='p4 diff -se soft-ap/... | p4 edit -x'
 function savecl(){
     p4 describe $1 >> $1.diff
     echo "Saved CL$1 to $1.diff"
