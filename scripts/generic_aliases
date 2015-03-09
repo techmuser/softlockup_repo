@@ -53,3 +53,17 @@ function funcs
      ctags -x --c-types=f --sort=no "$1" | awk '{print $1}'
 }
 
+# Generate tags on pwd.
+function cscopesetup()
+{
+     rm cscope.files; 
+     echo "Building cscope database...";
+     find . -name "*.[ch]" -print > cscope.files;
+     cscope -b -q -k;
+}
+function ctagsetup()
+{
+    rm ./tags;
+    ctags --extra=+f -L cscope.files; 
+}
+alias taggen='cscopesetup; ctagsetup'
