@@ -1,0 +1,29 @@
+" softlockup.com
+" Essential vimrc
+" Additional cscopemaps.vim
+
+set ignorecase
+set noeb
+set incsearch
+set wildmode=longest,list
+set ignorecase
+set smartcase
+set autoindent
+set splitright
+set cindent
+set modifiable 
+set scrolloff=2
+set number
+set hlsearch
+:hi Search guibg=LightBlue
+
+
+ab printk printk("%s(%d): \n", __FUNCTION__, __LINE__);
+ab printf printf("%s(%d): \n", __FUNCTION__, __LINE__);
+ab stderr fprintf(stderr,"%s(%d) Error: \n",__FUNCTION__, __LINE__);
+
+cs add $CSCOPE_DB
+
+set t_Co=256
+syntax on
+
