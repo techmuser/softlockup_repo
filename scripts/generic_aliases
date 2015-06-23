@@ -27,6 +27,11 @@ function saveusercls() {
     #rm tempcl.list;
 }
 
+# GIT shortcuts.
+alias gitlog='git log --oneline --decorate'
+alias gitreset='git reset --hard'
+alias gitbackout='git reset --soft HEAD~1'
+
 # Other bash shortcuts
 alias finds='ls -R | grep -i '
 alias findf='find . -iname '
