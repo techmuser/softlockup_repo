@@ -47,6 +47,12 @@ alias cs-run='cscope -R'
 alias cs-build='sh ~/Scripts/gentags'
 alias cs-daemon='cscope -d'
 
+# Function for grepping kernel sources.
+function kfin(){
+    grep -irn --color=always --include \*.h  --include \*.c $1 $SRC/linux-3.4/ | less -R
+}
+
+
 # Get list of functions in source file.
 function funcs
 {
@@ -58,7 +64,8 @@ function cscopesetup()
 {
      rm cscope.files; 
      echo "Building cscope database...";
-     find . -name "*.[ch]" -print > cscope.files;
+     find . -name "*.[ch]" -print >> cscope.files;
+
      cscope -b -q -k;
 }
 function ctagsetup()
