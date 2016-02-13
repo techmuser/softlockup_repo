@@ -31,6 +31,11 @@ function saveusercls() {
 alias gitlog='git log --oneline --decorate'
 alias gitreset='git reset --hard'
 alias gitbackout='git reset --soft HEAD~1'
+alias gs='git status'
+alias ga='git add'
+alias gitbackout='git revert '  #SHA1 of the commit
+alias gitrename='git branch -m ' #Old name, new name
+alias gitdel='git reset --hard HEAD~1' #Remove last commit from head of branch.
 
 # Other bash shortcuts
 alias finds='ls -R | grep -i '
@@ -57,6 +62,14 @@ function kfin(){
     grep -irn --color=always --include \*.h  --include \*.c $1 $SRC/linux-3.4/ | less -R
 }
 
+#md5sum
+function md5comp()
+{
+    a=$(md5sum $1 | awk '{print $1}')
+    b=$(md5sum $2 | awk '{print $1}')
+    echo "Comparing $1 and $2"
+    [ "$a" = "$b" ] && echo  "Equal" || echo "Not Equal"
+}
 
 # Get list of functions in source file.
 function funcs
