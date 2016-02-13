@@ -28,8 +28,10 @@ function saveusercls() {
 }
 
 # GIT shortcuts.
-alias gitlog='git log --oneline --decorate'
+# alias gitlog='git log --oneline --decorate'
 alias gitreset='git reset --hard'
+alias gitlog='git log --pretty=format:"%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s"'
+alias gitlog10='git log --pretty=format:"%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s" -n 10'
 alias gitbackout='git reset --soft HEAD~1'
 alias gs='git status'
 alias ga='git add'
